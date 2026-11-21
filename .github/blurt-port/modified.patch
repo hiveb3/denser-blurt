@@ -1,0 +1,548 @@
+diff --git a/apps/blog/features/votes/votes-component.tsx b/apps/blog/features/votes/votes-component.tsx
+--- a/apps/blog/features/votes/votes-component.tsx
++++ b/apps/blog/features/votes/votes-component.tsx
+@@ -1,3 +1,4 @@
++import { HAS_DOWNVOTES } from '@hive/ui/lib/chain-labels';
+ import { ReactNode, useEffect, useState } from 'react';
+ import { useStorageWithTTL } from '@ui/hooks/useStorageWithTTL';
+ import { StorageTTL } from '@ui/lib/storage-with-ttl';
+@@ -239,8 +240,8 @@ const VotesComponent = ({ post, type }: { post: Entry; type: 'comment' | 'post'
+           </div>
+         </DialogLogin>
+       )}
+-      {/* Downvote with slider - trigger */}
+-      {clickedVoteButton === 'down' && voteMutation.isLoading ? (
++      {/* Downvote with slider - trigger (Blurt has no downvotes) */}
++      {HAS_DOWNVOTES && (clickedVoteButton === 'down' && voteMutation.isLoading ? (
+         <CircleSpinner
+           loading={clickedVoteButton === 'down' && voteMutation.isLoading}
+           size={20}
+@@ -377,7 +378,7 @@ const VotesComponent = ({ post, type }: { post: Entry; type: 'comment' | 'post'
+             </TooltipContainer>
+           </div>
+         </DialogLogin>
+-      )}
++      ))}
+     </div>
+   );
+ };
+diff --git a/apps/wallet/app/[param]/delegations/delegations-page.tsx b/apps/wallet/app/[param]/delegations/delegations-page.tsx
+--- a/apps/wallet/app/[param]/delegations/delegations-page.tsx
++++ b/apps/wallet/app/[param]/delegations/delegations-page.tsx
+@@ -1,5 +1,6 @@
+ 'use client';
+ 
++import { POWER } from '@hive/ui/lib/chain-labels';
+ import { useQuery } from '@tanstack/react-query';
+ import { getDynamicGlobalProperties } from '@transaction/lib/hive-api';
+ import { getVestingDelegations } from '@/wallet/lib/hive';
+@@ -37,7 +38,7 @@ export default function DelegationsPage({ username }: { username: string }) {
+       <WalletMenu username={username} />
+       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+         <div className="flex flex-col items-center">
+-          <h2 className="text-lg font-bold underline">HIVE POWER</h2>
++          <h2 className="text-lg font-bold underline">{POWER}</h2>
+           <table className="w-full">
+             <tbody>
+               {vestingData?.map((element) => (
+diff --git a/apps/wallet/components/open-orders.tsx b/apps/wallet/components/open-orders.tsx
+--- a/apps/wallet/components/open-orders.tsx
++++ b/apps/wallet/components/open-orders.tsx
+@@ -1,5 +1,6 @@
+ 'use client';
+ 
++import { COIN } from '@hive/ui/lib/chain-labels';
+ import clsx from 'clsx';
+ import { IOpenOrdersData } from '@hive/common-hiveio-packages/wax';
+ import { useTranslation } from '@/wallet/i18n/client';
+@@ -54,7 +55,7 @@ const OpenOrders: React.FC<OpenOrderProps> = ({ user, orders, loading }) => {
+               </th>
+               <th>{t('market_page.type')}</th>
+               <th>{t('market_page.price')}</th>
+-              <th>HIVE</th>
++              <th>{COIN}</th>
+               <th>HBD ($)</th>
+               <th>{t('market_page.filled')}</th>
+               <th className="px-4">{t('market_page.action')}</th>
+diff --git a/apps/wallet/components/proposals-list-item.tsx b/apps/wallet/components/proposals-list-item.tsx
+--- a/apps/wallet/components/proposals-list-item.tsx
++++ b/apps/wallet/components/proposals-list-item.tsx
+@@ -1,3 +1,4 @@
++import { COIN, POWER_SHORT } from '@hive/ui/lib/chain-labels';
+ import { Link } from '@hive/ui';
+ import { BURN_ACCOUNTS, REFUND_ACCOUNTS } from '@/wallet/lib/constants';
+ import { IListItemProps } from '@/wallet/lib/hive';
+@@ -152,10 +153,10 @@ export function ProposalListItem({ proposalData, totalShares, totalVestingFund,
+           </span>
+           <div className="whitespace-nowrap text-slate-500" data-testid="proposal-amount">
+             <span
+-              title={numberWithCommas(totalHBD.toFixed(2)) + ' HBD'}
++              title={numberWithCommas(totalHBD.toFixed(2)) + ' ' + COIN}
+               className="font-semibold text-red-500 dark:text-red-200"
+             >
+-              {getRoundedAbbreveration(totalHBD)} {' HBD'}
++              {getRoundedAbbreveration(totalHBD)} {' ' + COIN}
+             </span>{' '}
+             {'('}
+             {t('proposals_page.daily')} {getRoundedAbbreveration(proposalData.daily_pay.amount)}
+@@ -226,7 +227,7 @@ export function ProposalListItem({ proposalData, totalShares, totalVestingFund,
+         <VoteProposals id={proposalData.id} totalShares={totalShares} totalVestingFund={totalVestingFund}>
+           <div
+             className="self-center md:text-xl"
+-            title={totalVotes.toFixed(2) + ' HP'}
++            title={totalVotes.toFixed(2) + ' ' + POWER_SHORT}
+             data-testid="vote-proposal-value"
+           >
+             {getRoundedAbbreveration(totalVotes)}
+diff --git a/apps/wallet/components/revoke-dialog.tsx b/apps/wallet/components/revoke-dialog.tsx
+--- a/apps/wallet/components/revoke-dialog.tsx
++++ b/apps/wallet/components/revoke-dialog.tsx
+@@ -1,3 +1,4 @@
++import { COIN } from '@hive/ui/lib/chain-labels';
+ import {
+   Button,
+   Dialog,
+@@ -52,7 +53,7 @@ const RevokeDialog = ({ delegator, delegatee }: { delegator: string; delegatee:
+             <Input disabled value={delegatee} className="col-span-3" />
+           </div>
+           <div className="grid grid-cols-4 items-center gap-4">
+-            <Label className="text-right">HIVE</Label>
++            <Label className="text-right">{COIN}</Label>
+             <Input disabled value={0} className="col-span-3" />
+           </div>
+         </div>
+diff --git a/apps/wallet/components/sidebar.tsx b/apps/wallet/components/sidebar.tsx
+--- a/apps/wallet/components/sidebar.tsx
++++ b/apps/wallet/components/sidebar.tsx
+@@ -1,3 +1,4 @@
++import { HAS_MARKET } from '@hive/ui/lib/chain-labels';
+ import { Button } from '@ui/components/button';
+ import { Icons } from '@ui/components/icons';
+ import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@ui/components/sheet';
+@@ -82,7 +83,7 @@ const Sidebar = () => {
+             <Item href={`${envURL}/faq.html`} target>
+               {t('navigation.sidebar.faq')}
+             </Item>
+-            <Item href="/market">{t('navigation.sidebar.currency_market')}</Item>
++            {HAS_MARKET && <Item href="/market">{t('navigation.sidebar.currency_market')}</Item>}
+             <Separator className="my-2" />
+             <Item href="/~witnesses">{t('navigation.sidebar.vote_for_witnesses')}</Item>
+             <Item href="/proposals">{t('navigation.sidebar.hive_proposals')}</Item>
+diff --git a/apps/wallet/components/transfer-dialog.tsx b/apps/wallet/components/transfer-dialog.tsx
+--- a/apps/wallet/components/transfer-dialog.tsx
++++ b/apps/wallet/components/transfer-dialog.tsx
+@@ -1,5 +1,6 @@
+ 'use client';
+ 
++import { COIN, HAS_HBD } from '@hive/ui/lib/chain-labels';
+ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@ui/components';
+ import { Button } from '@ui/components/button';
+ import {
+@@ -381,8 +382,8 @@ export function TransferDialog({
+                         </SelectTrigger>
+                         <SelectContent>
+                           <SelectGroup>
+-                            <SelectItem value="HIVE">HIVE</SelectItem>
+-                            <SelectItem value="HBD">HBD</SelectItem>
++                            <SelectItem value="HIVE">{COIN}</SelectItem>
++                            {HAS_HBD && <SelectItem value="HBD">HBD</SelectItem>}
+                           </SelectGroup>
+                         </SelectContent>
+                       </Select>
+@@ -465,7 +466,7 @@ export function TransferDialog({
+                   defaultValue={0}
+                   max={Number(data.amount.replace(/[^0-9.]/g, ''))}
+                 />
+-                <span>HIVE</span>
++                <span>{COIN}</span>
+               </div>
+               <div className="flex flex-col gap-2 text-xs">
+                 <p>
+diff --git a/apps/wallet/components/voters-item.tsx b/apps/wallet/components/voters-item.tsx
+--- a/apps/wallet/components/voters-item.tsx
++++ b/apps/wallet/components/voters-item.tsx
+@@ -1,3 +1,4 @@
++import { POWER_SHORT } from '@hive/ui/lib/chain-labels';
+ import { Link } from '@hive/ui';
+ 
+ function VotersItem({ username, hp, proxy }: { username: string; hp: number; proxy: number }) {
+@@ -12,7 +13,7 @@ function VotersItem({ username, hp, proxy }: { username: string; hp: number; pro
+         {username}
+       </Link>
+       <div className="text-slate-500" data-testid="voter-values-dialog">
+-        <span>{hp + ' HP'}</span>
++        <span>{hp + ' ' + POWER_SHORT}</span>
+         <span>{proxy > 0 ? ' + ' + proxy + ' Proxy' : null}</span>
+       </div>
+     </div>
+diff --git a/apps/wallet/components/witnesses-list-item.tsx b/apps/wallet/components/witnesses-list-item.tsx
+--- a/apps/wallet/components/witnesses-list-item.tsx
++++ b/apps/wallet/components/witnesses-list-item.tsx
+@@ -1,3 +1,4 @@
++import { POWER_SHORT } from '@hive/ui/lib/chain-labels';
+ import { Link } from '@hive/ui';
+ import { ExtendWitness } from '@/wallet/app/~witnesses/witnesses-page';
+ import clsx from 'clsx';
+@@ -263,7 +264,7 @@ function WitnessListItem({
+       <td className="p-1 sm:p-2">
+         <div className="font-medium " data-testid="witness-votes-received">
+           {getRoundedAbbreveration(data.vestsToHp)}
+-          {' HP'}
++          {' ' + POWER_SHORT}
+         </div>
+         {data.requiredHpToRankUp && (
+           <div className="font-light">
+diff --git a/apps/wallet/feature/transfers-page/wallet-balances-table.tsx b/apps/wallet/feature/transfers-page/wallet-balances-table.tsx
+--- a/apps/wallet/feature/transfers-page/wallet-balances-table.tsx
++++ b/apps/wallet/feature/transfers-page/wallet-balances-table.tsx
+@@ -1,5 +1,6 @@
+ 'use client';
+ 
++import { COIN, POWER, HAS_HBD, HAS_RC, HAS_PRICE_FEED, HAS_MARKET } from '@hive/ui/lib/chain-labels';
+ import { useState } from 'react';
+ import Big from 'big.js';
+ import dayjs from 'dayjs';
+@@ -145,13 +146,13 @@ const WalletBalancesTable = ({
+     dynamicData.total_vesting_fund_hive
+   );
+ 
+-  const hp = numberWithCommas(vesting_hive.toFixed(3)) + ' HIVE';
++  const hp = numberWithCommas(vesting_hive.toFixed(3)) + ' ' + COIN;
+ 
+   const amount = {
+-    hive: numberWithCommas(balance_hive.toFixed(3)) + ' HIVE',
++    hive: numberWithCommas(balance_hive.toFixed(3)) + ' ' + COIN,
+     hbd: '$' + numberWithCommas(hbd_balance.toFixed(3)),
+     reducedHP: vesting_hive.minus(delegatedVesting).toFixed(3),
+-    savingsHive: saving_balance_hive.toFixed(3) + ' HIVE',
++    savingsHive: saving_balance_hive.toFixed(3) + ' ' + COIN,
+     savingsHbd: '$' + numberWithCommas(hbd_balance_savings.toFixed(3)),
+     delegatedVesting: delegatedVesting,
+     to_withdraw: convertToHP(
+@@ -193,7 +194,7 @@ const WalletBalancesTable = ({
+           <tbody>
+             <tr className="flex flex-col py-2 sm:table-row">
+               <td className="px-2 sm:px-4 sm:py-4">
+-                <div className="font-semibold">HIVE</div>
++                <div className="font-semibold">{COIN}</div>
+                 <p className="text-xs leading-relaxed text-primary/70" data-testid="wallet-hive-description">
+                   {t('profile.hive_description')}
+                 </p>
+@@ -238,11 +239,13 @@ const WalletBalancesTable = ({
+                         >
+                           {t('profile.power_up')}
+                         </TransferDialog>
++                        {HAS_MARKET && (
+                         <DropdownMenuItem className="p-0">
+                           <Link href="/market" className="w-full px-2 py-1.5">
+                             {t('profile.market')}
+                           </Link>
+                         </DropdownMenuItem>
++                        )}
+                       </DropdownMenuGroup>
+                     </DropdownMenuContent>
+                   </DropdownMenu>
+@@ -265,7 +268,7 @@ const WalletBalancesTable = ({
+             </tr>
+             <tr className="flex flex-col bg-background-secondary py-2 sm:table-row">
+               <td className="px-2 sm:px-4 sm:py-4">
+-                <div className="font-semibold">HIVE POWER</div>
++                <div className="font-semibold">{POWER}</div>
+                 <p
+                   className="text-xs leading-relaxed text-primary/70"
+                   data-testid="wallet-hive-power-description"
+@@ -354,7 +357,7 @@ const WalletBalancesTable = ({
+                   <Tooltip>
+                     <TooltipTrigger asChild>
+                       {Number(received_power_balance) !== 0 && (
+-                        <div className="px-4">({received_power_balance + ' HIVE'})</div>
++                        <div className="px-4">({received_power_balance + ' ' + COIN})</div>
+                       )}
+                     </TooltipTrigger>
+                     <TooltipContent className="font-normal">{t('profile.delegated_tooltip')}</TooltipContent>
+@@ -362,6 +365,7 @@ const WalletBalancesTable = ({
+                 </TooltipProvider>
+               </td>
+             </tr>
++            {HAS_HBD && (
+             <tr className="flex flex-col py-2 sm:table-row">
+               <td className="px-2 sm:px-4 sm:py-4">
+                 <div className="font-semibold">HIVE DOLLARS</div>
+@@ -404,11 +408,13 @@ const WalletBalancesTable = ({
+                           {t('profile.transfer_to_savings')}
+                         </TransferDialog>
+ 
++                        {HAS_MARKET && (
+                         <DropdownMenuItem className="p-0">
+                           <Link href="/market" className="w-full px-2 py-1.5">
+                             {t('profile.market')}
+                           </Link>
+                         </DropdownMenuItem>
++                        )}
+                       </DropdownMenuGroup>
+                     </DropdownMenuContent>
+                   </DropdownMenu>
+@@ -431,6 +437,7 @@ const WalletBalancesTable = ({
+                 )}
+               </td>
+             </tr>
++            )}
+             <tr className=" flex flex-col bg-background-secondary sm:table-row">
+               <td className="px-2 sm:px-4 sm:py-4">
+                 <div className="font-semibold">{t('profile.savings_title')}</div>
+@@ -479,6 +486,7 @@ const WalletBalancesTable = ({
+                         </DropdownMenuGroup>
+                       </DropdownMenuContent>
+                     </DropdownMenu>
++                    {HAS_HBD && (
+                     <DropdownMenu>
+                       <DropdownMenuTrigger asChild>
+                         <Button variant="ghost">
+@@ -502,15 +510,17 @@ const WalletBalancesTable = ({
+                         </DropdownMenuGroup>
+                       </DropdownMenuContent>
+                     </DropdownMenu>
++                    )}
+                   </div>
+                 ) : (
+                   <div className="px-4 py-2">
+                     <div data-testid="wallet-saving-hive-value">{amount.savingsHive}</div>
+-                    <div data-testid="walled-hbd-saving-value">{amount.savingsHbd}</div>
++                    {HAS_HBD && <div data-testid="walled-hbd-saving-value">{amount.savingsHbd}</div>}
+                   </div>
+                 )}
+               </td>
+             </tr>
++            {HAS_PRICE_FEED && (
+             <tr className="flex flex-col py-2 sm:table-row">
+               <td className="px-2 sm:px-4 sm:py-4">
+                 <div className="font-semibold">{t('profile.estimated_account_value_title')}</div>
+@@ -528,13 +538,14 @@ const WalletBalancesTable = ({
+                 {'$' + total_value}
+               </td>
+             </tr>
++            )}
+           </tbody>
+         </table>
+-        <RCRow username={username} />
++        {HAS_RC && <RCRow username={username} />}
+       </div>
+       {powerdown_hive.gt(0) ? (
+         <div className="p-2 text-sm sm:p-4">
+-          {`${t('profile.the_next_power_down')} ${totalTime} (~${numberWithCommas(powerdown_hive.toFixed(3))} HIVE)`}
++          {`${t('profile.the_next_power_down')} ${totalTime} (~${numberWithCommas(powerdown_hive.toFixed(3))} ${COIN})`}
+         </div>
+       ) : null}
+     </>
+diff --git a/packages/common-hiveio-packages/package.json b/packages/common-hiveio-packages/package.json
+--- a/packages/common-hiveio-packages/package.json
++++ b/packages/common-hiveio-packages/package.json
+@@ -9,13 +9,16 @@
+   "dependencies": {
+     "@hive/ui": "workspace:*",
+     "@hiveio/hb-auth": "catalog:hiveio-toolset",
+-    "@hiveio/wax": "catalog:hiveio-toolset"
++    "@hiveio/wax": "catalog:hiveio-toolset",
++    "@beblurt/dblurt": "^0.17.0",
++    "@beam-australia/react-env": "^3.1.1"
+   },
+   "exports": {
+     ".": "./src/index.ts",
+     "./package.json": "./package.json",
+     "./wax": "./src/wax/index.ts",
+-    "./src/hb-auth": "./src/hb-auth/index.ts"
++    "./src/hb-auth": "./src/hb-auth/index.ts",
++    "./blurt": "./src/blurt/index.ts"
+   },
+   "devDependencies": {
+     "@types/node": "^20.10.4",
+diff --git a/packages/common-hiveio-packages/src/index.ts b/packages/common-hiveio-packages/src/index.ts
+--- a/packages/common-hiveio-packages/src/index.ts
++++ b/packages/common-hiveio-packages/src/index.ts
+@@ -1,2 +1,3 @@
+ export * from "./wax";
+ export * from "./hb-auth";
++export * from "./blurt";
+diff --git a/packages/common-hiveio-packages/src/wax/hive-chain-service.ts b/packages/common-hiveio-packages/src/wax/hive-chain-service.ts
+--- a/packages/common-hiveio-packages/src/wax/hive-chain-service.ts
++++ b/packages/common-hiveio-packages/src/wax/hive-chain-service.ts
+@@ -4,6 +4,7 @@ import { configuredAIDomain } from '@hive/ui/config/public-vars';
+ import { ExtendedNodeApi, ExtendedRestApi } from './extended-hive.chain';
+ import { getLogger } from '@hive/ui/lib/logging';
+ import { initializeAssetConstants } from '@hive/ui/lib/asset-constants';
++import { installBlurtRpcShim, isBlurt, setBlurtBroadcastEndpoint } from '../blurt';
+ 
+ export type HiveChain = TWaxExtended<ExtendedNodeApi, TWaxRestExtended<ExtendedRestApi>>;
+ 
+@@ -104,6 +105,10 @@ export const setRpcEndpoint = (newEndpoint: string): void => {
+   }
+ 
+   hiveChain.api.endpointUrl = newEndpoint;
++  if (isBlurt()) {
++    installBlurtRpcShim([newEndpoint]);
++    setBlurtBroadcastEndpoint(newEndpoint);
++  }
+ 
+   window.localStorage.setItem('node-endpoint', JSON.stringify(newEndpoint));
+ };
+@@ -143,6 +148,12 @@ const setChainClient = (options: Partial<IWaxOptionsChain> = {}): Promise<HiveCh
+   };
+   logger.info('Creating instance of Wax Chain with options: %o', clientOptions);
+ 
++  if (isBlurt()) {
++    // Translate Blurt JSON-RPC answers into the Hive shape wax expects
++    installBlurtRpcShim([clientOptions.apiEndpoint as string]);
++    setBlurtBroadcastEndpoint(clientOptions.apiEndpoint as string);
++  }
++
+   hiveChainPromise = createHiveChain(clientOptions).then((hiveChainInitialized) => {
+     const extended = hiveChainInitialized.extend<ExtendedNodeApi>().extendRest<ExtendedRestApi>({
+       'hivesense-api': {
+diff --git a/packages/smart-signer/components/auth/methods/methods.tsx b/packages/smart-signer/components/auth/methods/methods.tsx
+--- a/packages/smart-signer/components/auth/methods/methods.tsx
++++ b/packages/smart-signer/components/auth/methods/methods.tsx
+@@ -1,4 +1,5 @@
+ /* Component that represents other (secondary) auth options */
++import { isBlurt } from '@hive/common-hiveio-packages/blurt';
+ import { FC, useEffect, useState } from 'react';
+ import { z } from 'zod';
+ import { useForm } from 'react-hook-form';
+@@ -195,6 +196,9 @@ const Methods: FC<MethodsProps> = ({
+           )}
+ 
+           <div className="flex flex-col items-start">
++            {/* Blurt: Hive-only signers (MetaMask snap, Google Drive wallet, Hive Keychain, PeakVault) sign Hive transactions themselves */}
++            {!isBlurt() && (
++              <>
+             <Button
+               disabled={!form.formState.isValid || !isMetaMaskSupported}
+               className="flex w-full justify-start py-6"
+@@ -249,6 +253,8 @@ const Methods: FC<MethodsProps> = ({
+             </Button>
+ 
+             <Separator className="my-1 w-full" />
++              </>
++            )}
+ 
+             <Button
+               disabled={!form.formState.isValid}
+diff --git a/packages/transaction/index.ts b/packages/transaction/index.ts
+--- a/packages/transaction/index.ts
++++ b/packages/transaction/index.ts
+@@ -26,6 +26,12 @@ import WorkerBee, { IWorkerBee } from '@hiveio/workerbee';
+ import { getLogger } from '@hive/ui/lib/logging';
+ import { createAsset, getAsset } from './lib/utils';
+ import { getChain } from './lib/chain';
++import {
++  isBlurt,
++  waxTransactionToBlurtOperations,
++  prepareBlurtTransaction,
++  broadcastBlurtTransaction
++} from '@hive/common-hiveio-packages/blurt';
+ 
+ const logger = getLogger('app');
+ 
+@@ -119,6 +125,10 @@ export class TransactionService {
+     // Validate transaction
+     txBuilder.validate();
+ 
++    if (isBlurt()) {
++      return await this.processBlurtTransaction(txBuilder, singleSignKeyType, requiredKeyType);
++    }
++
+     const signature = await this.signTransaction(txBuilder, singleSignKeyType, requiredKeyType);
+ 
+     // Add signature to transaction
+@@ -131,6 +141,28 @@ export class TransactionService {
+     }
+   }
+ 
++  /**
++   * Blurt path: reuse the operations built by wax, but serialize, hash and
++   * broadcast them with the Blurt protocol (different op ids, chain id,
++   * asset symbols and key prefix). Only signers that can sign a raw digest
++   * (WIF, hb-auth safe storage) are supported.
++   */
++  async processBlurtTransaction(
++    txBuilder: ITransaction,
++    singleSignKeyType?: SignTransaction['singleSignKeyType'],
++    requiredKeyType?: SignTransaction['requiredKeyType']
++  ): Promise<TransactionBroadcastResult> {
++    const operations = waxTransactionToBlurtOperations(txBuilder.toApi());
++    const prepared = await prepareBlurtTransaction(operations);
++    const signer: any = getSigner(this.signerOptions);
++    if (typeof signer.signDigest !== 'function') {
++      throw new Error(`Login method "${this.signerOptions.loginType}" cannot sign Blurt transactions yet. Please log in with your private key.`);
++    }
++    logger.info('Signing Blurt transaction %s: %o', prepared.transactionId, prepared.transaction);
++    const signature: string = await signer.signDigest(prepared.digest, '', singleSignKeyType, requiredKeyType);
++    return await broadcastBlurtTransaction(prepared, [signature]);
++  }
++
+   /**
+    * Sign transaction using smart-signer.
+    *
+diff --git a/packages/ui/config/public-vars.ts b/packages/ui/config/public-vars.ts
+--- a/packages/ui/config/public-vars.ts
++++ b/packages/ui/config/public-vars.ts
+@@ -2,10 +2,10 @@ import env from '@beam-australia/react-env';
+ 
+ /// Contains list of public variables which can have safely set defaults and allow application build without explicit env. definition
+ 
+-export const configuredAIDomain = env('AI_DOMAIN') ?? 'https://api.hive.blog';
+-export const configuredSiteDomain = env('SITE_DOMAIN') ?? 'https://hive.blog/';
+-export const configuredImagesEndpoint = (env('IMAGES_ENDPOINT') ?? 'https://images.hive.blog').replace(/\/+$/, '');
+-export const configuredApiEndpoint = (env('API_ENDPOINT') ?? 'https://api.hive.blog').replace(/\/+$/, '');
++export const configuredAIDomain = env('AI_DOMAIN') ?? '';
++export const configuredSiteDomain = env('SITE_DOMAIN') ?? 'https://blurt.blog/';
++export const configuredImagesEndpoint = (env('IMAGES_ENDPOINT') ?? 'https://imgp.blurt.world').replace(/\/+$/, '');
++export const configuredApiEndpoint = (env('API_ENDPOINT') ?? 'https://rpc.beblurt.com').replace(/\/+$/, '');
+ export const configuredRestApiEndpoint = env('REST_API_ENDPOINT')?.replace(/\/+$/, '') || undefined;
+ export const configuredBlogDomain = env('BLOG_DOMAIN') ?? 'https://hive.blog/';
+ export const configuredSessionTime = env('APP_SESSION_TIME') ?? configuredSiteDomain.includes('wallet') ? 900 : 64800;
+diff --git a/packages/ui/config/site.ts b/packages/ui/config/site.ts
+--- a/packages/ui/config/site.ts
++++ b/packages/ui/config/site.ts
+@@ -4,27 +4,30 @@ import { configuredApiEndpoint, configuredRestApiEndpoint, configuredSiteDomain
+ 
+ const SERVER_VAR_PREFIX = 'DENSER_SERVER_';
+ 
+-const MAINNET_CHAIN_ID = 'beeab0de00000000000000000000000000000000000000000000000000000000';
++const HIVE_MAINNET_CHAIN_ID = 'beeab0de00000000000000000000000000000000000000000000000000000000';
++// Blurt port: Blurt mainnet is the default chain
++const MAINNET_CHAIN_ID = 'cd8d90f29ae273abec3eaa7731e25934c63eb654d55080caff2ebb7f5df6381f';
+ const MIRRORNET_CHAIN_ID = '42';
+ 
+ export type ChainEnv = 'mainnet' | 'mirrornet' | 'testnet';
+ 
+ const chainEnv: Record<string, ChainEnv> = {
+   [MAINNET_CHAIN_ID]: 'mainnet',
++  [HIVE_MAINNET_CHAIN_ID]: 'mainnet',
+   [MIRRORNET_CHAIN_ID]: 'mirrornet',
+   'testnet': 'testnet'
+ };
+ 
+ const chainId = env('CHAIN_ID') ? env('CHAIN_ID') : MAINNET_CHAIN_ID;
+ export const siteConfig = {
+-  name: 'Hive Blog',
++  name: 'Blurt Blog',
+   url: configuredSiteDomain,
+   endpoint: configuredApiEndpoint,
+   restApiEndpoint: configuredRestApiEndpoint,
+   chainId,
+   chainEnv: chainEnv[chainId] || chainEnv['testnet'],
+   ogImage: '',
+-  description: 'Social media site for Hive Blockchain',
++  description: 'Social media site for the Blurt blockchain',
+   links: {
+     twitter: '/',
+     github: '/'
+@@ -34,7 +37,7 @@ export const siteConfig = {
+ 
+   googleDrive: {
+     clientId: env('GOOGLE_DRIVE_CLIENT_ID') || '',
+-    walletFileName: env('GOOGLE_DRIVE_WALLET_FILE_NAME') || 'hivebridge_wallet.json',
++    walletFileName: env('GOOGLE_DRIVE_WALLET_FILE_NAME') || 'blurtbridge_wallet.json',
+     scopes: [
+       'https://www.googleapis.com/auth/drive.appdata'
+     ].join(' '),
