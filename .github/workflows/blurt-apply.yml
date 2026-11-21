@@ -1,0 +1,32 @@
+name: Apply Blurt port patch
+
+on:
+  push:
+    branches: [blurt]
+    paths: ['.github/workflows/blurt-apply.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: blurt
+      - name: Apply patch, rebrand locales, clean up
+        run: |
+          set -e
+          test -f .github/blurt-port/modified.patch || { echo "already applied"; exit 0; }
+          git config user.name "hiveb3"
+          git config user.email "hiveb3@users.noreply.github.com"
+          git apply .github/blurt-port/modified.patch
+          python3 scripts/blurt-rebrand-locales.py $(find apps packages -path '*/node_modules' -prune -o -path '*/locales/*' -name '*.json' -print)
+          chmod +x scripts/blurt-setup.sh
+          git update-index --chmod=+x scripts/blurt-setup.sh || true
+          git rm -r -q .github/blurt-port BLURT-PORTING-WIP.md
+          git add -A
+          git commit -q -m "Blurt port: apply changes to existing files and rebrand locales (Hive -> Blurt)"
+          git push origin HEAD:blurt
