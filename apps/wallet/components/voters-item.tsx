@@ -1,3 +1,4 @@
+import { POWER_SHORT } from '@hive/ui/lib/chain-labels';
 import { Link } from '@hive/ui';
 
 function VotersItem({ username, hp, proxy }: { username: string; hp: number; proxy: number }) {
@@ -12,7 +13,7 @@ function VotersItem({ username, hp, proxy }: { username: string; hp: number; pro
         {username}
       </Link>
       <div className="text-slate-500" data-testid="voter-values-dialog">
-        <span>{hp + ' HP'}</span>
+        <span>{hp + ' ' + POWER_SHORT}</span>
         <span>{proxy > 0 ? ' + ' + proxy + ' Proxy' : null}</span>
       </div>
     </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { COIN } from '@hive/ui/lib/chain-labels';
 import clsx from 'clsx';
 import { IOpenOrdersData } from '@hive/common-hiveio-packages/wax';
 import { useTranslation } from '@/wallet/i18n/client';
@@ -54,7 +55,7 @@ const OpenOrders: React.FC<OpenOrderProps> = ({ user, orders, loading }) => {
               </th>
               <th>{t('market_page.type')}</th>
               <th>{t('market_page.price')}</th>
-              <th>HIVE</th>
+              <th>{COIN}</th>
               <th>HBD ($)</th>
               <th>{t('market_page.filled')}</th>
               <th className="px-4">{t('market_page.action')}</th>

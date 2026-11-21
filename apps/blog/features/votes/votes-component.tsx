@@ -1,3 +1,4 @@
+import { HAS_DOWNVOTES } from '@hive/ui/lib/chain-labels';
 import { ReactNode, useEffect, useState } from 'react';
 import { useStorageWithTTL } from '@ui/hooks/useStorageWithTTL';
 import { StorageTTL } from '@ui/lib/storage-with-ttl';
@@ -239,8 +240,8 @@ const VotesComponent = ({ post, type }: { post: Entry; type: 'comment' | 'post' 
           </div>
         </DialogLogin>
       )}
-      {/* Downvote with slider - trigger */}
-      {clickedVoteButton === 'down' && voteMutation.isLoading ? (
+      {/* Downvote with slider - trigger (Blurt has no downvotes) */}
+      {HAS_DOWNVOTES && (clickedVoteButton === 'down' && voteMutation.isLoading ? (
         <CircleSpinner
           loading={clickedVoteButton === 'down' && voteMutation.isLoading}
           size={20}
@@ -377,7 +378,7 @@ const VotesComponent = ({ post, type }: { post: Entry; type: 'comment' | 'post' 
             </TooltipContainer>
           </div>
         </DialogLogin>
-      )}
+      ))}
     </div>
   );
 };

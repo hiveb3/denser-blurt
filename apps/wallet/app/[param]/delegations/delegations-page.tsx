@@ -1,5 +1,6 @@
 'use client';
 
+import { POWER } from '@hive/ui/lib/chain-labels';
 import { useQuery } from '@tanstack/react-query';
 import { getDynamicGlobalProperties } from '@transaction/lib/hive-api';
 import { getVestingDelegations } from '@/wallet/lib/hive';
@@ -37,7 +38,7 @@ export default function DelegationsPage({ username }: { username: string }) {
       <WalletMenu username={username} />
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         <div className="flex flex-col items-center">
-          <h2 className="text-lg font-bold underline">HIVE POWER</h2>
+          <h2 className="text-lg font-bold underline">{POWER}</h2>
           <table className="w-full">
             <tbody>
               {vestingData?.map((element) => (

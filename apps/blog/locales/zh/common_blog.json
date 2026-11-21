@@ -71,9 +71,9 @@
       "change_account_password": "更改帐户密码",
       "vote_for_witnesses": "投票给见证人",
       "faq": "常见问题",
-      "hive_proposals": "Hive Proposals",
+      "hive_proposals": "Blurt Proposals",
       "openhive_chat": "Hive聊天",
-      "developer_portal": "Hive API文档",
+      "developer_portal": "Blurt API文档",
       "hive_whitepaper": "Hive白皮书",
       "privacy_policy": "隐私政策",
       "terms_of_service": "服务条款"
@@ -84,12 +84,12 @@
       "explore_communities": "显示更多的主题..."
     },
     "explore_nav": {
-      "explore_hive": "Explore Hive",
-      "what_is_hive": "What is Hive",
+      "explore_hive": "Explore Blurt",
+      "what_is_hive": "What is Blurt",
       "hive_dapps": "Hive应用中心",
       "blockexplorer": "Blockexplorer",
       "vote_for_witnesses": "投票给见证人",
-      "hive_proposals": "Hive Proposals"
+      "hive_proposals": "Blurt Proposals"
     },
     "profile_navbar": {
       "blog": "博客",
@@ -205,7 +205,7 @@
       "responses": "{{responses}}个回复。",
       "click_to_respond": "点击回复。",
       "reblog": "转发",
-      "powered_up_100": "100% Hive Power"
+      "powered_up_100": "100% Blurt Power"
     },
     "comment_card": {
       "reveal_comment": "显示评论",
@@ -313,7 +313,7 @@
         "unfollow_muted_list": "取消关注静音列表",
         "what_is_this": "What Is This?",
         "show_or_hide_descripton_one": "This is the new decentralized list system. From here you can manage your own mute list or blacklist, as well as subscribe to the mute lists and blacklists of other users. There are some new fields on the ",
-        "show_or_hide_descripton_two": " page where you can set a description of how you choose who you've added to your lists and if there are any actions that account can take to get removed from them. You can see the descriptions of the lists of other accounts by browsing directly to their personal blacklist or mute list page. These links can be found on their profile page below the follower information. To get started, we recommend that you follow the blacklists/mute lists of these accounts: hive.blog",
+        "show_or_hide_descripton_two": " page where you can set a description of how you choose who you've added to your lists and if there are any actions that account can take to get removed from them. You can see the descriptions of the lists of other accounts by browsing directly to their personal blacklist or mute list page. These links can be found on their profile page below the follower information. To get started, we recommend that you follow the blacklists/mute lists of these accounts: blurt.blog",
         "settings": "设置",
         "list_description": "列表描述：",
         "add_account_to_list": "添加账号到列表",
@@ -341,7 +341,7 @@
     },
     "social_tab": {
       "community_subscriptions_title": "Community Subscriptions",
-      "the_author_has_subscribed_to_the_following": "The author has subscribed to the following Hive Communities",
+      "the_author_has_subscribed_to_the_following": "The author has subscribed to the following Blurt Communities",
       "badges_and_achievements_title": "Badges and achievements",
       "these_are_badges_received_by_the_author": "These are badges received by the author via the third-party apps ",
       "view_badges_on": "View badges on",
@@ -540,10 +540,10 @@
     "markdown_not_supported": "此处不支持Markdown",
     "html_not_supported": "此处不支持HTML",
     "hive_link_converted": "Blog link converted",
-    "hive_link_converted_count": "{{count}} Hive blog link(s) converted to relative path",
+    "hive_link_converted_count": "{{count}} Blurt blog link(s) converted to relative path",
     "undo": "Undo",
-    "convert_hive_links": "Convert Hive links",
-    "convert_hive_links_tooltip": "Automatically converts pasted links from Hive blog frontends to frontend-agnostic relative paths, so your post works on any Hive app",
+    "convert_hive_links": "Convert Blurt links",
+    "convert_hive_links_tooltip": "Automatically converts pasted links from Blurt blog frontends to frontend-agnostic relative paths, so your post works on any Blurt app",
     "optimize_images": "Optimize images",
     "optimize_images_tooltip": "Resize and compress images before upload for faster uploads and smaller file sizes. Converts unsupported formats (HEIC/HEIF) automatically.",
     "uploading_images": "Uploading {{count}} images...",

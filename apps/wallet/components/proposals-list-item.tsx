@@ -1,3 +1,4 @@
+import { COIN, POWER_SHORT } from '@hive/ui/lib/chain-labels';
 import { Link } from '@hive/ui';
 import { BURN_ACCOUNTS, REFUND_ACCOUNTS } from '@/wallet/lib/constants';
 import { IListItemProps } from '@/wallet/lib/hive';
@@ -152,10 +153,10 @@ export function ProposalListItem({ proposalData, totalShares, totalVestingFund, 
           </span>
           <div className="whitespace-nowrap text-slate-500" data-testid="proposal-amount">
             <span
-              title={numberWithCommas(totalHBD.toFixed(2)) + ' HBD'}
+              title={numberWithCommas(totalHBD.toFixed(2)) + ' ' + COIN}
               className="font-semibold text-red-500 dark:text-red-200"
             >
-              {getRoundedAbbreveration(totalHBD)} {' HBD'}
+              {getRoundedAbbreveration(totalHBD)} {' ' + COIN}
             </span>{' '}
             {'('}
             {t('proposals_page.daily')} {getRoundedAbbreveration(proposalData.daily_pay.amount)}
@@ -226,7 +227,7 @@ export function ProposalListItem({ proposalData, totalShares, totalVestingFund, 
         <VoteProposals id={proposalData.id} totalShares={totalShares} totalVestingFund={totalVestingFund}>
           <div
             className="self-center md:text-xl"
-            title={totalVotes.toFixed(2) + ' HP'}
+            title={totalVotes.toFixed(2) + ' ' + POWER_SHORT}
             data-testid="vote-proposal-value"
           >
             {getRoundedAbbreveration(totalVotes)}

@@ -1,4 +1,5 @@
 /* Component that represents other (secondary) auth options */
+import { isBlurt } from '@hive/common-hiveio-packages/blurt';
 import { FC, useEffect, useState } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -195,6 +196,9 @@ const Methods: FC<MethodsProps> = ({
           )}
 
           <div className="flex flex-col items-start">
+            {/* Blurt: Hive-only signers (MetaMask snap, Google Drive wallet, Hive Keychain, PeakVault) sign Hive transactions themselves */}
+            {!isBlurt() && (
+              <>
             <Button
               disabled={!form.formState.isValid || !isMetaMaskSupported}
               className="flex w-full justify-start py-6"
@@ -249,6 +253,8 @@ const Methods: FC<MethodsProps> = ({
             </Button>
 
             <Separator className="my-1 w-full" />
+              </>
+            )}
 
             <Button
               disabled={!form.formState.isValid}

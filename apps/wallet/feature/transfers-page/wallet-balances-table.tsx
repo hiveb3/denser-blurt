@@ -1,5 +1,6 @@
 'use client';
 
+import { COIN, POWER, HAS_HBD, HAS_RC, HAS_PRICE_FEED, HAS_MARKET } from '@hive/ui/lib/chain-labels';
 import { useState } from 'react';
 import Big from 'big.js';
 import dayjs from 'dayjs';
@@ -145,13 +146,13 @@ const WalletBalancesTable = ({
     dynamicData.total_vesting_fund_hive
   );
 
-  const hp = numberWithCommas(vesting_hive.toFixed(3)) + ' HIVE';
+  const hp = numberWithCommas(vesting_hive.toFixed(3)) + ' ' + COIN;
 
   const amount = {
-    hive: numberWithCommas(balance_hive.toFixed(3)) + ' HIVE',
+    hive: numberWithCommas(balance_hive.toFixed(3)) + ' ' + COIN,
     hbd: '$' + numberWithCommas(hbd_balance.toFixed(3)),
     reducedHP: vesting_hive.minus(delegatedVesting).toFixed(3),
-    savingsHive: saving_balance_hive.toFixed(3) + ' HIVE',
+    savingsHive: saving_balance_hive.toFixed(3) + ' ' + COIN,
     savingsHbd: '$' + numberWithCommas(hbd_balance_savings.toFixed(3)),
     delegatedVesting: delegatedVesting,
     to_withdraw: convertToHP(
@@ -193,7 +194,7 @@ const WalletBalancesTable = ({
           <tbody>
             <tr className="flex flex-col py-2 sm:table-row">
               <td className="px-2 sm:px-4 sm:py-4">
-                <div className="font-semibold">HIVE</div>
+                <div className="font-semibold">{COIN}</div>
                 <p className="text-xs leading-relaxed text-primary/70" data-testid="wallet-hive-description">
                   {t('profile.hive_description')}
                 </p>
@@ -238,11 +239,13 @@ const WalletBalancesTable = ({
                         >
                           {t('profile.power_up')}
                         </TransferDialog>
+                        {HAS_MARKET && (
                         <DropdownMenuItem className="p-0">
                           <Link href="/market" className="w-full px-2 py-1.5">
                             {t('profile.market')}
                           </Link>
                         </DropdownMenuItem>
+                        )}
                       </DropdownMenuGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -265,7 +268,7 @@ const WalletBalancesTable = ({
             </tr>
             <tr className="flex flex-col bg-background-secondary py-2 sm:table-row">
               <td className="px-2 sm:px-4 sm:py-4">
-                <div className="font-semibold">HIVE POWER</div>
+                <div className="font-semibold">{POWER}</div>
                 <p
                   className="text-xs leading-relaxed text-primary/70"
                   data-testid="wallet-hive-power-description"
@@ -354,7 +357,7 @@ const WalletBalancesTable = ({
                   <Tooltip>
                     <TooltipTrigger asChild>
                       {Number(received_power_balance) !== 0 && (
-                        <div className="px-4">({received_power_balance + ' HIVE'})</div>
+                        <div className="px-4">({received_power_balance + ' ' + COIN})</div>
                       )}
                     </TooltipTrigger>
                     <TooltipContent className="font-normal">{t('profile.delegated_tooltip')}</TooltipContent>
@@ -362,6 +365,7 @@ const WalletBalancesTable = ({
                 </TooltipProvider>
               </td>
             </tr>
+            {HAS_HBD && (
             <tr className="flex flex-col py-2 sm:table-row">
               <td className="px-2 sm:px-4 sm:py-4">
                 <div className="font-semibold">HIVE DOLLARS</div>
@@ -404,11 +408,13 @@ const WalletBalancesTable = ({
                           {t('profile.transfer_to_savings')}
                         </TransferDialog>
 
+                        {HAS_MARKET && (
                         <DropdownMenuItem className="p-0">
                           <Link href="/market" className="w-full px-2 py-1.5">
                             {t('profile.market')}
                           </Link>
                         </DropdownMenuItem>
+                        )}
                       </DropdownMenuGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -431,6 +437,7 @@ const WalletBalancesTable = ({
                 )}
               </td>
             </tr>
+            )}
             <tr className=" flex flex-col bg-background-secondary sm:table-row">
               <td className="px-2 sm:px-4 sm:py-4">
                 <div className="font-semibold">{t('profile.savings_title')}</div>
@@ -479,6 +486,7 @@ const WalletBalancesTable = ({
                         </DropdownMenuGroup>
                       </DropdownMenuContent>
                     </DropdownMenu>
+                    {HAS_HBD && (
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button variant="ghost">
@@ -502,15 +510,17 @@ const WalletBalancesTable = ({
                         </DropdownMenuGroup>
                       </DropdownMenuContent>
                     </DropdownMenu>
+                    )}
                   </div>
                 ) : (
                   <div className="px-4 py-2">
                     <div data-testid="wallet-saving-hive-value">{amount.savingsHive}</div>
-                    <div data-testid="walled-hbd-saving-value">{amount.savingsHbd}</div>
+                    {HAS_HBD && <div data-testid="walled-hbd-saving-value">{amount.savingsHbd}</div>}
                   </div>
                 )}
               </td>
             </tr>
+            {HAS_PRICE_FEED && (
             <tr className="flex flex-col py-2 sm:table-row">
               <td className="px-2 sm:px-4 sm:py-4">
                 <div className="font-semibold">{t('profile.estimated_account_value_title')}</div>
@@ -528,13 +538,14 @@ const WalletBalancesTable = ({
                 {'$' + total_value}
               </td>
             </tr>
+            )}
           </tbody>
         </table>
-        <RCRow username={username} />
+        {HAS_RC && <RCRow username={username} />}
       </div>
       {powerdown_hive.gt(0) ? (
         <div className="p-2 text-sm sm:p-4">
-          {`${t('profile.the_next_power_down')} ${totalTime} (~${numberWithCommas(powerdown_hive.toFixed(3))} HIVE)`}
+          {`${t('profile.the_next_power_down')} ${totalTime} (~${numberWithCommas(powerdown_hive.toFixed(3))} ${COIN})`}
         </div>
       ) : null}
     </>

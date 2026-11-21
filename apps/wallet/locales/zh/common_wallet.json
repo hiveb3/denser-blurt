@@ -74,12 +74,12 @@
       "welcome": "欢迎",
       "faq": "常见问题",
       "vote_for_witnesses": "投票给见证人",
-      "hive_proposals": "Hive Proposals",
+      "hive_proposals": "Blurt Proposals",
       "blocktrades": "Blocktrades",
       "ionomy": "Ionomy",
       "openhive_chat": "Hive聊天",
       "apps_built_on_hive": "Hive应用中心",
-      "developer_portal": "Hive API文档",
+      "developer_portal": "Blurt API文档",
       "hive_whitepaper": "Hive白皮书",
       "privacy_policy": "隐私政策",
       "terms_of_service": "服务条款",
@@ -104,7 +104,7 @@
       "others": "Others",
       "incoming": "Incoming",
       "outgoing": "Outgoing",
-      "exclude_less_than_one": "Exclude less than 1 HBD/HIVE",
+      "exclude_less_than_one": "Exclude less than 1 HBD/BLURT",
       "input_title": "Search by user",
       "input_placeholder": "username"
     },
@@ -123,11 +123,11 @@
     }
   },
   "wallet_index": {
-    "title": "Hive wallet login",
-    "content": "Welcome to Hive's official Hive blockchain wallet. Use it to transfer Hive tokens, Power up, vote for Hive Witnesses and change your Hive profile details.",
+    "title": "Blurt wallet login",
+    "content": "Welcome to Blurt's official Blurt blockchain wallet. Use it to transfer Blurt tokens, Power up, vote for Blurt Witnesses and change your Blurt profile details.",
     "login_button": "登录",
     "card": {
-      "title": "Hive tokens",
+      "title": "Blurt tokens",
       "liquid_platform_token": "Liquid platform token",
       "vesting_influence_token": "Vesting influence token",
       "seeks_price_stability": "Seeks price stability with USD"
@@ -136,7 +136,7 @@
   "profile": {
     "joined": "加入",
     "hive_description": "可交易代币可以在任何时候发送到任何地方。HIVE可以在一个被称为Power Up的过程中被转换成HIVE POWER",
-    "hp_description": "代币的影响力可以使你对文章的赏金有更大的控制权，并可以获得审查奖励。 有一部分HIVE POWER是代理给你使用的。代理的HIVE POWER是为了帮助新用户在hive.blog上进行操作。你被代理的数量可能会有波动。HIVE POWER increases at an APR of approximately {{value}}%, subject to blockchain variance.",
+    "hp_description": "代币的影响力可以使你对文章的赏金有更大的控制权，并可以获得审查奖励。 有一部分HIVE POWER是代理给你使用的。代理的HIVE POWER是为了帮助新用户在hive.blog上进行操作。你被代理的数量可能会有波动。BLURT POWER increases at an APR of approximately {{value}}%, subject to blockchain variance.",
     "hive_dolar_description": "可交易代币可以在任何时候发送到任何地方。",
     "savings_title": "储蓄",
     "savings_description": "余额取决于3天的提款等待期，HBD interest rate: {{rate}}% APR (as voted by the <0>Witnesses</0>)",
@@ -173,8 +173,8 @@
     "bid": "买价",
     "ask": "卖价",
     "spread": "波动",
-    "buy_hive": "购买 HIVE",
-    "sell_hive": "卖出 HIVE",
+    "buy_hive": "购买 BLURT",
+    "sell_hive": "卖出 BLURT",
     "price": "价格",
     "amount": "数量",
     "total": "总量",

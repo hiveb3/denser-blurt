@@ -1,3 +1,4 @@
+import { POWER_SHORT } from '@hive/ui/lib/chain-labels';
 import { Link } from '@hive/ui';
 import { ExtendWitness } from '@/wallet/app/~witnesses/witnesses-page';
 import clsx from 'clsx';
@@ -263,7 +264,7 @@ function WitnessListItem({
       <td className="p-1 sm:p-2">
         <div className="font-medium " data-testid="witness-votes-received">
           {getRoundedAbbreveration(data.vestsToHp)}
-          {' HP'}
+          {' ' + POWER_SHORT}
         </div>
         {data.requiredHpToRankUp && (
           <div className="font-light">

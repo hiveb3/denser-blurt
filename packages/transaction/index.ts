@@ -26,6 +26,12 @@ import WorkerBee, { IWorkerBee } from '@hiveio/workerbee';
 import { getLogger } from '@hive/ui/lib/logging';
 import { createAsset, getAsset } from './lib/utils';
 import { getChain } from './lib/chain';
+import {
+  isBlurt,
+  waxTransactionToBlurtOperations,
+  prepareBlurtTransaction,
+  broadcastBlurtTransaction
+} from '@hive/common-hiveio-packages/blurt';
 
 const logger = getLogger('app');
 
@@ -119,6 +125,10 @@ export class TransactionService {
     // Validate transaction
     txBuilder.validate();
 
+    if (isBlurt()) {
+      return await this.processBlurtTransaction(txBuilder, singleSignKeyType, requiredKeyType);
+    }
+
     const signature = await this.signTransaction(txBuilder, singleSignKeyType, requiredKeyType);
 
     // Add signature to transaction
@@ -129,6 +139,28 @@ export class TransactionService {
     } else {
       return await this.broadcastTransaction(txBuilder);
     }
+  }
+
+  /**
+   * Blurt path: reuse the operations built by wax, but serialize, hash and
+   * broadcast them with the Blurt protocol (different op ids, chain id,
+   * asset symbols and key prefix). Only signers that can sign a raw digest
+   * (WIF, hb-auth safe storage) are supported.
+   */
+  async processBlurtTransaction(
+    txBuilder: ITransaction,
+    singleSignKeyType?: SignTransaction['singleSignKeyType'],
+    requiredKeyType?: SignTransaction['requiredKeyType']
+  ): Promise<TransactionBroadcastResult> {
+    const operations = waxTransactionToBlurtOperations(txBuilder.toApi());
+    const prepared = await prepareBlurtTransaction(operations);
+    const signer: any = getSigner(this.signerOptions);
+    if (typeof signer.signDigest !== 'function') {
+      throw new Error(`Login method "${this.signerOptions.loginType}" cannot sign Blurt transactions yet. Please log in with your private key.`);
+    }
+    logger.info('Signing Blurt transaction %s: %o', prepared.transactionId, prepared.transaction);
+    const signature: string = await signer.signDigest(prepared.digest, '', singleSignKeyType, requiredKeyType);
+    return await broadcastBlurtTransaction(prepared, [signature]);
   }
 
   /**

@@ -71,10 +71,10 @@
       "change_account_password": "تغيير كلمة مرور الحساب",
       "vote_for_witnesses": "التصويت للشهود",
       "faq": "الأسئلة الشائعة",
-      "hive_proposals": "اقتراحات Hive",
+      "hive_proposals": "اقتراحات Blurt",
       "openhive_chat": "محادثة OpenHive",
       "developer_portal": "بوابة المطور",
-      "hive_whitepaper": "الورقة البيضاء لـ Hive",
+      "hive_whitepaper": "الورقة البيضاء لـ Blurt",
       "privacy_policy": "سياسة الخصوصية",
       "terms_of_service": "شروط الخدمة"
     },
@@ -84,12 +84,12 @@
       "explore_communities": "استكشف المجتمعات..."
     },
     "explore_nav": {
-      "explore_hive": "استكشف Hive",
-      "what_is_hive": "ما هو Hive",
-      "hive_dapps": "تطبيقات Hive اللامركزية",
+      "explore_hive": "استكشف Blurt",
+      "what_is_hive": "ما هو Blurt",
+      "hive_dapps": "تطبيقات Blurt اللامركزية",
       "blockexplorer": "مستكشف البلوك",
       "vote_for_witnesses": "التصويت للشهود",
-      "hive_proposals": "اقتراحات Hive"
+      "hive_proposals": "اقتراحات Blurt"
     },
     "profile_navbar": {
       "blog": "المدونة",
@@ -212,7 +212,7 @@
       "you_voted": "صوتت بنسبة {{votePercent}}%",
       "vote_polling_error_message_title": "تحذير",
       "vote_polling_error_message_description": "فشل في التحقق مما إذا تم تضمين تصويت المستخدم.",
-      "powered_up_100": "100% Hive Power"
+      "powered_up_100": "100% Blurt Power"
     },
     "comment_card": {
       "reveal_comment": "كشف التعليق",
@@ -278,12 +278,12 @@
     "other_signin_options": "خيارات تسجيل دخول أخرى",
     "other_signin_description": "أدخل اسم المستخدم الخاص بك واختر طريقة تسجيل الدخول",
     "google_password_placeholder": "كلمة المرور لفتح محفظة Google Drive",
-    "google_tooltip": "سجل الدخول باستخدام محفظة Hive المخزنة في Google Drive الخاص بك. أنشئ واحدة على auth.openhive.network",
+    "google_tooltip": "سجل الدخول باستخدام محفظة Blurt المخزنة في Google Drive الخاص بك. أنشئ واحدة على auth.openhive.network",
     "google_wallet_not_found_title": "محفظة Google Drive غير موجودة",
-    "google_wallet_not_found_description": "لا يحتوي Google Drive الخاص بك على ملف محفظة Hive. تحتاج إلى إنشاء واحدة أولاً باستخدام Hive Bridge.",
-    "google_wallet_not_found_help": "Hive Bridge هو تطبيق آمن يساعدك على إنشاء وتخزين محفظة Hive في Google Drive الخاص بك. يتيح لك ذلك توقيع معاملات Hive بدون تثبيت ملحقات المتصفح.",
+    "google_wallet_not_found_description": "لا يحتوي Google Drive الخاص بك على ملف محفظة Blurt. تحتاج إلى إنشاء واحدة أولاً باستخدام Hive Bridge.",
+    "google_wallet_not_found_help": "Hive Bridge هو تطبيق آمن يساعدك على إنشاء وتخزين محفظة Blurt في Google Drive الخاص بك. يتيح لك ذلك توقيع معاملات Blurt بدون تثبيت ملحقات المتصفح.",
     "google_key_not_found_title": "المفتاح غير موجود في المحفظة",
-    "google_key_not_found_description": "لم يتم العثور على مفتاح {{keyType}} لـ Hive للمستخدم {{username}} في محفظة Google Drive.",
+    "google_key_not_found_description": "لم يتم العثور على مفتاح {{keyType}} لـ Blurt للمستخدم {{username}} في محفظة Google Drive.",
     "go_to_hive_bridge": "اذهب إلى Hive Bridge",
     "completing_google_auth": "Completing Google authorization..."
   },
@@ -335,8 +335,8 @@
         "unfollow_blacklist": "إلغاء متابعة القائمة السوداء",
         "unfollow_muted_list": "إلغاء متابعة قائمة الصمت",
         "what_is_this": "ما هذا؟",
-        "show_or_hide_descripton_one": "هذا هو نظام القائمة اللامركزية الجديد. من هنا يمكنك إدارة قائمة الصمت أو القائمة السوداء الخاصة بك، بالإضافة إلى الاشتراك في قوائم الصمت والقوائم السوداء للمستخدمين الآخرين. هناك بعض الحقول الجديدة في الصفحة حيث يمكنك تعيين وصف لكيفية اختيار الأشخاص الذين أضفتهم إلى قوائمك وما إذا كان هناك أي إجراءات يمكن أن يتخذها هذا الحساب لإزالته منها. يمكنك الاطلاع على أوصاف قوائم المستخدمين الآخرين من خلال تصفح قوائمهم الشخصية المخصصة للصمت أو القائمة السوداء. يمكن العثور على هذه الروابط على صفحة الملف الشخصي الخاصة بهم أسفل معلومات المتابعين. لبدء الاستخدام، نوصي بالاشتراك في قوائم الكتم أو القوائم السوداء الخاصة بهذه الحسابات: hive.blog",
-        "show_or_hide_descripton_two": "صفحة القوائم المخصصة للصمت أو القائمة السوداء. يمكنك من هنا إدارة قائمة الصمت أو القائمة السوداء الخاصة بك، بالإضافة إلى الاشتراك في قوائم الصمت والقوائم السوداء للمستخدمين الآخرين. هناك بعض الحقول الجديدة في الصفحة حيث يمكنك تعيين وصف لكيفية اختيار الأشخاص الذين أضفتهم إلى قوائمك وما إذا كان هناك أي إجراءات يمكن أن يتخذها هذا الحساب لإزالته منها. يمكنك الاطلاع على أوصاف قوائم المستخدمين الآخرين من خلال تصفح قوائمهم الشخصية المخصصة للصمت أو القائمة السوداء. يمكن العثور على هذه الروابط على صفحة الملف الشخصي الخاصة بهم أسفل معلومات المتابعين. لبدء الاستخدام، نوصي بالاشتراك في قوائم الكتم أو القوائم السوداء الخاصة بهذه الحسابات: hive.blog",
+        "show_or_hide_descripton_one": "هذا هو نظام القائمة اللامركزية الجديد. من هنا يمكنك إدارة قائمة الصمت أو القائمة السوداء الخاصة بك، بالإضافة إلى الاشتراك في قوائم الصمت والقوائم السوداء للمستخدمين الآخرين. هناك بعض الحقول الجديدة في الصفحة حيث يمكنك تعيين وصف لكيفية اختيار الأشخاص الذين أضفتهم إلى قوائمك وما إذا كان هناك أي إجراءات يمكن أن يتخذها هذا الحساب لإزالته منها. يمكنك الاطلاع على أوصاف قوائم المستخدمين الآخرين من خلال تصفح قوائمهم الشخصية المخصصة للصمت أو القائمة السوداء. يمكن العثور على هذه الروابط على صفحة الملف الشخصي الخاصة بهم أسفل معلومات المتابعين. لبدء الاستخدام، نوصي بالاشتراك في قوائم الكتم أو القوائم السوداء الخاصة بهذه الحسابات: blurt.blog",
+        "show_or_hide_descripton_two": "صفحة القوائم المخصصة للصمت أو القائمة السوداء. يمكنك من هنا إدارة قائمة الصمت أو القائمة السوداء الخاصة بك، بالإضافة إلى الاشتراك في قوائم الصمت والقوائم السوداء للمستخدمين الآخرين. هناك بعض الحقول الجديدة في الصفحة حيث يمكنك تعيين وصف لكيفية اختيار الأشخاص الذين أضفتهم إلى قوائمك وما إذا كان هناك أي إجراءات يمكن أن يتخذها هذا الحساب لإزالته منها. يمكنك الاطلاع على أوصاف قوائم المستخدمين الآخرين من خلال تصفح قوائمهم الشخصية المخصصة للصمت أو القائمة السوداء. يمكن العثور على هذه الروابط على صفحة الملف الشخصي الخاصة بهم أسفل معلومات المتابعين. لبدء الاستخدام، نوصي بالاشتراك في قوائم الكتم أو القوائم السوداء الخاصة بهذه الحسابات: blurt.blog",
         "settings": "الإعدادات",
         "list_description": "وصف القائمة: ",
         "add_account_to_list": "إضافة حساب(ات) إلى القائمة",
@@ -364,7 +364,7 @@
     },
     "social_tab": {
       "community_subscriptions_title": "الاشتراكات المجتمعية",
-      "the_author_has_subscribed_to_the_following": "قام المؤلف بالاشتراك في المجتمعات التالية من Hive",
+      "the_author_has_subscribed_to_the_following": "قام المؤلف بالاشتراك في المجتمعات التالية من Blurt",
       "badges_and_achievements_title": "الشارات والإنجازات",
       "these_are_badges_received_by_the_author": "هذه هي الشارات التي حصل عليها المؤلف من خلال تطبيقات الطرف الثالث",
       "view_badges_on": "View badges on",
@@ -499,7 +499,7 @@
         "share_this_link": "مشاركة هذه المشاركة",
         "url_to_this_post": "URL لهذه المشاركة:",
         "markdown_code_for_a_link_to_this_post": "رمز Markdown للرابط إلى هذه المشاركة:",
-        "open_in_alternative": "افتح في تطبيقات Hive dApps البديلة",
+        "open_in_alternative": "افتح في تطبيقات Blurt dApps البديلة",
         "open_in": "افتح في مستكشفات البلوك"
       },
       "comment": {
@@ -587,10 +587,10 @@
     "markdown_not_supported": "Markdown غير مدعوم هنا",
     "html_not_supported": "HTML غير مدعوم هنا",
     "hive_link_converted": "Blog link converted",
-    "hive_link_converted_count": "{{count}} Hive blog link(s) converted to relative path",
+    "hive_link_converted_count": "{{count}} Blurt blog link(s) converted to relative path",
     "undo": "Undo",
-    "convert_hive_links": "Convert Hive links",
-    "convert_hive_links_tooltip": "Automatically converts pasted links from Hive blog frontends to frontend-agnostic relative paths, so your post works on any Hive app",
+    "convert_hive_links": "Convert Blurt links",
+    "convert_hive_links_tooltip": "Automatically converts pasted links from Blurt blog frontends to frontend-agnostic relative paths, so your post works on any Blurt app",
     "optimize_images": "Optimize images",
     "optimize_images_tooltip": "Resize and compress images before upload for faster uploads and smaller file sizes. Converts unsupported formats (HEIC/HEIF) automatically.",
     "uploading_images": "Uploading {{count}} images...",

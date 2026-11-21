@@ -71,10 +71,10 @@
       "change_account_password": "Change Account Password",
       "vote_for_witnesses": "Vote for Witnesses",
       "faq": "Поиск",
-      "hive_proposals": "Hive Proposals",
-      "openhive_chat": "Чат Hive",
-      "developer_portal": "API-документация Hive",
-      "hive_whitepaper": "Белая книга Hive",
+      "hive_proposals": "Blurt Proposals",
+      "openhive_chat": "Чат Blurt",
+      "developer_portal": "API-документация Blurt",
+      "hive_whitepaper": "Белая книга Blurt",
       "privacy_policy": "Политика Конфиденциальности",
       "terms_of_service": "Условия пользования"
     },
@@ -84,12 +84,12 @@
       "explore_communities": "Показать больше тем..."
     },
     "explore_nav": {
-      "explore_hive": "Explore Hive",
-      "what_is_hive": "What is Hive",
-      "hive_dapps": "Центр приложений Hive",
+      "explore_hive": "Explore Blurt",
+      "what_is_hive": "What is Blurt",
+      "hive_dapps": "Центр приложений Blurt",
       "blockexplorer": "Blockexplorer",
       "vote_for_witnesses": "Проголосовать за делегатов",
-      "hive_proposals": "Hive Proposals"
+      "hive_proposals": "Blurt Proposals"
     },
     "profile_navbar": {
       "blog": "Блог",
@@ -205,7 +205,7 @@
       "responses": "{{responses}} ответов. ",
       "click_to_respond": "Нажмите чтобы ответить.",
       "reblog": "Поделиться",
-      "powered_up_100": "100% Hive Power"
+      "powered_up_100": "100% Blurt Power"
     },
     "comment_card": {
       "reveal_comment": "Показать комментарий",
@@ -255,12 +255,12 @@
     "other_signin_options": "Другие варианты входа",
     "other_signin_description": "Введите имя пользователя и выберите способ входа",
     "google_password_placeholder": "Пароль для разблокировки кошелька Google Drive",
-    "google_tooltip": "Войдите, используя кошелек Hive, хранящийся на вашем Google Drive. Создайте его на auth.openhive.network",
+    "google_tooltip": "Войдите, используя кошелек Blurt, хранящийся на вашем Google Drive. Создайте его на auth.openhive.network",
     "google_wallet_not_found_title": "Кошелек Google Drive не найден",
-    "google_wallet_not_found_description": "Ваш Google Drive не содержит файла кошелька Hive. Сначала вам нужно создать его с помощью Hive Bridge.",
-    "google_wallet_not_found_help": "Hive Bridge - это безопасное приложение, которое помогает создать и хранить кошелек Hive на вашем Google Drive. Это позволяет подписывать транзакции Hive без установки расширений браузера.",
+    "google_wallet_not_found_description": "Ваш Google Drive не содержит файла кошелька Blurt. Сначала вам нужно создать его с помощью Hive Bridge.",
+    "google_wallet_not_found_help": "Hive Bridge - это безопасное приложение, которое помогает создать и хранить кошелек Blurt на вашем Google Drive. Это позволяет подписывать транзакции Blurt без установки расширений браузера.",
     "google_key_not_found_title": "Ключ не найден в кошельке",
-    "google_key_not_found_description": "Ключ {{keyType}} Hive для пользователя {{username}} не найден в кошельке Google Drive.",
+    "google_key_not_found_description": "Ключ {{keyType}} Blurt для пользователя {{username}} не найден в кошельке Google Drive.",
     "go_to_hive_bridge": "Перейти в Hive Bridge",
     "completing_google_auth": "Completing Google authorization..."
   },
@@ -319,7 +319,7 @@
         "unfollow_muted_list": "перестать следить за заглушенным списком",
         "what_is_this": "What Is This?",
         "show_or_hide_descripton_one": "This is the new decentralized list system. From here you can manage your own mute list or blacklist, as well as subscribe to the mute lists and blacklists of other users. There are some new fields on the ",
-        "show_or_hide_descripton_two": " page where you can set a description of how you choose who you've added to your lists and if there are any actions that account can take to get removed from them. You can see the descriptions of the lists of other accounts by browsing directly to their personal blacklist or mute list page. These links can be found on their profile page below the follower information. To get started, we recommend that you follow the blacklists/mute lists of these accounts: hive.blog",
+        "show_or_hide_descripton_two": " page where you can set a description of how you choose who you've added to your lists and if there are any actions that account can take to get removed from them. You can see the descriptions of the lists of other accounts by browsing directly to their personal blacklist or mute list page. These links can be found on their profile page below the follower information. To get started, we recommend that you follow the blacklists/mute lists of these accounts: blurt.blog",
         "settings": "Настройки",
         "list_description": "Описание списка: ",
         "add_account_to_list": "Добавить аккаунт(ы) в список",
@@ -347,7 +347,7 @@
     },
     "social_tab": {
       "community_subscriptions_title": "Community Subscriptions",
-      "the_author_has_subscribed_to_the_following": "The author has subscribed to the following Hive Communities",
+      "the_author_has_subscribed_to_the_following": "The author has subscribed to the following Blurt Communities",
       "badges_and_achievements_title": "Badges and achievements",
       "these_are_badges_received_by_the_author": "These are badges received by the author via the third-party apps ",
       "view_badges_on": "View badges on",
@@ -546,10 +546,10 @@
     "markdown_not_supported": "Markdown здесь не поддерживается",
     "html_not_supported": "HTML здесь не поддерживается",
     "hive_link_converted": "Blog link converted",
-    "hive_link_converted_count": "{{count}} Hive blog link(s) converted to relative path",
+    "hive_link_converted_count": "{{count}} Blurt blog link(s) converted to relative path",
     "undo": "Undo",
-    "convert_hive_links": "Convert Hive links",
-    "convert_hive_links_tooltip": "Automatically converts pasted links from Hive blog frontends to frontend-agnostic relative paths, so your post works on any Hive app",
+    "convert_hive_links": "Convert Blurt links",
+    "convert_hive_links_tooltip": "Automatically converts pasted links from Blurt blog frontends to frontend-agnostic relative paths, so your post works on any Blurt app",
     "optimize_images": "Optimize images",
     "optimize_images_tooltip": "Resize and compress images before upload for faster uploads and smaller file sizes. Converts unsupported formats (HEIC/HEIF) automatically.",
     "uploading_images": "Uploading {{count}} images...",

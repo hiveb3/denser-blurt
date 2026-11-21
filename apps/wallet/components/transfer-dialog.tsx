@@ -1,5 +1,6 @@
 'use client';
 
+import { COIN, HAS_HBD } from '@hive/ui/lib/chain-labels';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@ui/components';
 import { Button } from '@ui/components/button';
 import {
@@ -381,8 +382,8 @@ export function TransferDialog({
                         </SelectTrigger>
                         <SelectContent>
                           <SelectGroup>
-                            <SelectItem value="HIVE">HIVE</SelectItem>
-                            <SelectItem value="HBD">HBD</SelectItem>
+                            <SelectItem value="HIVE">{COIN}</SelectItem>
+                            {HAS_HBD && <SelectItem value="HBD">HBD</SelectItem>}
                           </SelectGroup>
                         </SelectContent>
                       </Select>
@@ -465,7 +466,7 @@ export function TransferDialog({
                   defaultValue={0}
                   max={Number(data.amount.replace(/[^0-9.]/g, ''))}
                 />
-                <span>HIVE</span>
+                <span>{COIN}</span>
               </div>
               <div className="flex flex-col gap-2 text-xs">
                 <p>

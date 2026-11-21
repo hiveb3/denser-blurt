@@ -1,3 +1,4 @@
+import { COIN } from '@hive/ui/lib/chain-labels';
 import {
   Button,
   Dialog,
@@ -52,7 +53,7 @@ const RevokeDialog = ({ delegator, delegatee }: { delegator: string; delegatee: 
             <Input disabled value={delegatee} className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label className="text-right">HIVE</Label>
+            <Label className="text-right">{COIN}</Label>
             <Input disabled value={0} className="col-span-3" />
           </div>
         </div>

@@ -4,27 +4,30 @@ import { configuredApiEndpoint, configuredRestApiEndpoint, configuredSiteDomain 
 
 const SERVER_VAR_PREFIX = 'DENSER_SERVER_';
 
-const MAINNET_CHAIN_ID = 'beeab0de00000000000000000000000000000000000000000000000000000000';
+const HIVE_MAINNET_CHAIN_ID = 'beeab0de00000000000000000000000000000000000000000000000000000000';
+// Blurt port: Blurt mainnet is the default chain
+const MAINNET_CHAIN_ID = 'cd8d90f29ae273abec3eaa7731e25934c63eb654d55080caff2ebb7f5df6381f';
 const MIRRORNET_CHAIN_ID = '42';
 
 export type ChainEnv = 'mainnet' | 'mirrornet' | 'testnet';
 
 const chainEnv: Record<string, ChainEnv> = {
   [MAINNET_CHAIN_ID]: 'mainnet',
+  [HIVE_MAINNET_CHAIN_ID]: 'mainnet',
   [MIRRORNET_CHAIN_ID]: 'mirrornet',
   'testnet': 'testnet'
 };
 
 const chainId = env('CHAIN_ID') ? env('CHAIN_ID') : MAINNET_CHAIN_ID;
 export const siteConfig = {
-  name: 'Hive Blog',
+  name: 'Blurt Blog',
   url: configuredSiteDomain,
   endpoint: configuredApiEndpoint,
   restApiEndpoint: configuredRestApiEndpoint,
   chainId,
   chainEnv: chainEnv[chainId] || chainEnv['testnet'],
   ogImage: '',
-  description: 'Social media site for Hive Blockchain',
+  description: 'Social media site for the Blurt blockchain',
   links: {
     twitter: '/',
     github: '/'
@@ -34,7 +37,7 @@ export const siteConfig = {
 
   googleDrive: {
     clientId: env('GOOGLE_DRIVE_CLIENT_ID') || '',
-    walletFileName: env('GOOGLE_DRIVE_WALLET_FILE_NAME') || 'hivebridge_wallet.json',
+    walletFileName: env('GOOGLE_DRIVE_WALLET_FILE_NAME') || 'blurtbridge_wallet.json',
     scopes: [
       'https://www.googleapis.com/auth/drive.appdata'
     ].join(' '),

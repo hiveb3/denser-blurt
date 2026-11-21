@@ -71,9 +71,9 @@
       "change_account_password": "パスワードの変更",
       "vote_for_witnesses": "証人に投票する",
       "faq": "FAQ",
-      "hive_proposals": "Hive Proposals",
+      "hive_proposals": "Blurt Proposals",
       "openhive_chat": "Hiveチャット",
-      "developer_portal": "Hive API資料",
+      "developer_portal": "Blurt API資料",
       "hive_whitepaper": "Hiveホワイトペーパー",
       "privacy_policy": "プライバシーポリシー",
       "terms_of_service": "利用規約"
@@ -84,12 +84,12 @@
       "explore_communities": "すべてのタグを見る"
     },
     "explore_nav": {
-      "explore_hive": "Explore Hive",
-      "what_is_hive": "What is Hive",
-      "hive_dapps": "Hive dApps",
+      "explore_hive": "Explore Blurt",
+      "what_is_hive": "What is Blurt",
+      "hive_dapps": "Blurt dApps",
       "blockexplorer": "Blockexplorer",
       "vote_for_witnesses": "証人に投票する",
-      "hive_proposals": "Hive Proposals"
+      "hive_proposals": "Blurt Proposals"
     },
     "profile_navbar": {
       "blog": "ブログ",
@@ -205,7 +205,7 @@
       "responses": " 返信は%{{responses}}件です。",
       "click_to_respond": "返信するにはクリックしてください。",
       "reblog": "Reblog",
-      "powered_up_100": "100% Hive Power"
+      "powered_up_100": "100% Blurt Power"
     },
     "comment_card": {
       "reveal_comment": "コメントを表示",
@@ -313,7 +313,7 @@
         "unfollow_muted_list": "ミュートリストをフォロー解除",
         "what_is_this": "What Is This?",
         "show_or_hide_descripton_one": "This is the new decentralized list system. From here you can manage your own mute list or blacklist, as well as subscribe to the mute lists and blacklists of other users. There are some new fields on the ",
-        "show_or_hide_descripton_two": " page where you can set a description of how you choose who you've added to your lists and if there are any actions that account can take to get removed from them. You can see the descriptions of the lists of other accounts by browsing directly to their personal blacklist or mute list page. These links can be found on their profile page below the follower information. To get started, we recommend that you follow the blacklists/mute lists of these accounts: hive.blog",
+        "show_or_hide_descripton_two": " page where you can set a description of how you choose who you've added to your lists and if there are any actions that account can take to get removed from them. You can see the descriptions of the lists of other accounts by browsing directly to their personal blacklist or mute list page. These links can be found on their profile page below the follower information. To get started, we recommend that you follow the blacklists/mute lists of these accounts: blurt.blog",
         "settings": "設定",
         "list_description": "リストの説明：",
         "add_account_to_list": "リストにアカウントを追加",
@@ -341,7 +341,7 @@
     },
     "social_tab": {
       "community_subscriptions_title": "Community Subscriptions",
-      "the_author_has_subscribed_to_the_following": "The author has subscribed to the following Hive Communities",
+      "the_author_has_subscribed_to_the_following": "The author has subscribed to the following Blurt Communities",
       "badges_and_achievements_title": "Badges and achievements",
       "these_are_badges_received_by_the_author": "These are badges received by the author via the third-party apps ",
       "view_badges_on": "View badges on",
@@ -452,7 +452,7 @@
         "share_this_link": "Share this post",
         "url_to_this_post": "URL to this post:",
         "markdown_code_for_a_link_to_this_post": "Markdown code for a link to this post:",
-        "open_in_alternative": "Open in alternative Hive dApps",
+        "open_in_alternative": "Open in alternative Blurt dApps",
         "open_in": "Open in Block Explorers"
       },
       "comment": {
@@ -540,10 +540,10 @@
     "markdown_not_supported": "ここではMarkdownはサポートされていません",
     "html_not_supported": "ここではHTMLはサポートされていません",
     "hive_link_converted": "Blog link converted",
-    "hive_link_converted_count": "{{count}} Hive blog link(s) converted to relative path",
+    "hive_link_converted_count": "{{count}} Blurt blog link(s) converted to relative path",
     "undo": "Undo",
-    "convert_hive_links": "Convert Hive links",
-    "convert_hive_links_tooltip": "Automatically converts pasted links from Hive blog frontends to frontend-agnostic relative paths, so your post works on any Hive app",
+    "convert_hive_links": "Convert Blurt links",
+    "convert_hive_links_tooltip": "Automatically converts pasted links from Blurt blog frontends to frontend-agnostic relative paths, so your post works on any Blurt app",
     "optimize_images": "Optimize images",
     "optimize_images_tooltip": "Resize and compress images before upload for faster uploads and smaller file sizes. Converts unsupported formats (HEIC/HEIF) automatically.",
     "uploading_images": "Uploading {{count}} images...",

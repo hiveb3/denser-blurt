@@ -1,3 +1,4 @@
+import { HAS_MARKET } from '@hive/ui/lib/chain-labels';
 import { Button } from '@ui/components/button';
 import { Icons } from '@ui/components/icons';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@ui/components/sheet';
@@ -82,7 +83,7 @@ const Sidebar = () => {
             <Item href={`${envURL}/faq.html`} target>
               {t('navigation.sidebar.faq')}
             </Item>
-            <Item href="/market">{t('navigation.sidebar.currency_market')}</Item>
+            {HAS_MARKET && <Item href="/market">{t('navigation.sidebar.currency_market')}</Item>}
             <Separator className="my-2" />
             <Item href="/~witnesses">{t('navigation.sidebar.vote_for_witnesses')}</Item>
             <Item href="/proposals">{t('navigation.sidebar.hive_proposals')}</Item>

@@ -4,6 +4,7 @@ import { configuredAIDomain } from '@hive/ui/config/public-vars';
 import { ExtendedNodeApi, ExtendedRestApi } from './extended-hive.chain';
 import { getLogger } from '@hive/ui/lib/logging';
 import { initializeAssetConstants } from '@hive/ui/lib/asset-constants';
+import { installBlurtRpcShim, isBlurt, setBlurtBroadcastEndpoint } from '../blurt';
 
 export type HiveChain = TWaxExtended<ExtendedNodeApi, TWaxRestExtended<ExtendedRestApi>>;
 
@@ -104,6 +105,10 @@ export const setRpcEndpoint = (newEndpoint: string): void => {
   }
 
   hiveChain.api.endpointUrl = newEndpoint;
+  if (isBlurt()) {
+    installBlurtRpcShim([newEndpoint]);
+    setBlurtBroadcastEndpoint(newEndpoint);
+  }
 
   window.localStorage.setItem('node-endpoint', JSON.stringify(newEndpoint));
 };
@@ -142,6 +147,12 @@ const setChainClient = (options: Partial<IWaxOptionsChain> = {}): Promise<HiveCh
     ...options
   };
   logger.info('Creating instance of Wax Chain with options: %o', clientOptions);
+
+  if (isBlurt()) {
+    // Translate Blurt JSON-RPC answers into the Hive shape wax expects
+    installBlurtRpcShim([clientOptions.apiEndpoint as string]);
+    setBlurtBroadcastEndpoint(clientOptions.apiEndpoint as string);
+  }
 
   hiveChainPromise = createHiveChain(clientOptions).then((hiveChainInitialized) => {
     const extended = hiveChainInitialized.extend<ExtendedNodeApi>().extendRest<ExtendedRestApi>({

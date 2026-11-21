@@ -71,10 +71,10 @@
       "change_account_password": "Zmiana hasła konta",
       "vote_for_witnesses": "Głosuj na delegatów",
       "faq": "FAQ",
-      "hive_proposals": "Hive, Propozycje",
+      "hive_proposals": "Blurt, Propozycje",
       "openhive_chat": "OpenHive Czat",
-      "developer_portal": "Dokumentacja Hive API",
-      "hive_whitepaper": "Oficjalna księga Hive",
+      "developer_portal": "Dokumentacja Blurt API",
+      "hive_whitepaper": "Oficjalna księga Blurt",
       "privacy_policy": "Polityka prywatności",
       "terms_of_service": "Warunki korzystania z usługi"
     },
@@ -84,12 +84,12 @@
       "explore_communities": "Pokaż więcej społeczności..."
     },
     "explore_nav": {
-      "explore_hive": " Dowiedz się więcej o Hive",
-      "what_is_hive": "Czym jest Hive",
-      "hive_dapps": "Hive dApps",
+      "explore_hive": " Dowiedz się więcej o Blurt",
+      "what_is_hive": "Czym jest Blurt",
+      "hive_dapps": "Blurt dApps",
       "blockexplorer": "Blockexplorer",
       "vote_for_witnesses": "Głosuj na delegatów",
-      "hive_proposals": "Hive, Propozycje"
+      "hive_proposals": "Blurt, Propozycje"
     },
     "profile_navbar": {
       "blog": "Blog",
@@ -207,7 +207,7 @@
       "responses": "{{responses}} odpowiedzi. ",
       "click_to_respond": "Kliknij by odpowiedzieć",
       "reblog": "Rebloguj",
-      "powered_up_100": "100% Hive Power"
+      "powered_up_100": "100% Blurt Power"
     },
     "comment_card": {
       "reveal_comment": "Pokaż komentarz",
@@ -259,12 +259,12 @@
     "other_signin_options": "Inne opcje logowania",
     "other_signin_description": "Wprowadź nazwę użytkownika i wybierz metodę logowania",
     "google_password_placeholder": "Hasło do odblokowania portfela Google Drive",
-    "google_tooltip": "Zaloguj się używając portfela Hive przechowywanego na Google Drive. Utwórz go na auth.openhive.network",
+    "google_tooltip": "Zaloguj się używając portfela Blurt przechowywanego na Google Drive. Utwórz go na auth.openhive.network",
     "google_wallet_not_found_title": "Nie znaleziono portfela Google Drive",
-    "google_wallet_not_found_description": "Twój Google Drive nie zawiera pliku portfela Hive. Najpierw musisz go utworzyć za pomocą Hive Bridge.",
-    "google_wallet_not_found_help": "Hive Bridge to bezpieczna aplikacja, która pomaga utworzyć i przechowywać portfel Hive na Google Drive. Pozwala to podpisywać transakcje Hive bez instalowania rozszerzeń przeglądarki.",
+    "google_wallet_not_found_description": "Twój Google Drive nie zawiera pliku portfela Blurt. Najpierw musisz go utworzyć za pomocą Hive Bridge.",
+    "google_wallet_not_found_help": "Hive Bridge to bezpieczna aplikacja, która pomaga utworzyć i przechowywać portfel Blurt na Google Drive. Pozwala to podpisywać transakcje Blurt bez instalowania rozszerzeń przeglądarki.",
     "google_key_not_found_title": "Nie znaleziono klucza w portfelu",
-    "google_key_not_found_description": "Nie znaleziono klucza {{keyType}} Hive dla użytkownika {{username}} w portfelu Google Drive.",
+    "google_key_not_found_description": "Nie znaleziono klucza {{keyType}} Blurt dla użytkownika {{username}} w portfelu Google Drive.",
     "go_to_hive_bridge": "Przejdź do Hive Bridge",
     "completing_google_auth": "Completing Google authorization..."
   },
@@ -318,7 +318,7 @@
         "unfollow_muted_list": "przestań obserwować wyciszoną listę",
         "what_is_this": "Co to jest?",
         "show_or_hide_descripton_one": "This is the new decentralized list system. From here you can manage your own mute list or blacklist, as well as subscribe to the mute lists and blacklists of other users. There are some new fields on the ",
-        "show_or_hide_descripton_two": " page where you can set a description of how you choose who you've added to your lists and if there are any actions that account can take to get removed from them. You can see the descriptions of the lists of other accounts by browsing directly to their personal blacklist or mute list page. These links can be found on their profile page below the follower information. To get started, we recommend that you follow the blacklists/mute lists of these accounts: hive.blog",
+        "show_or_hide_descripton_two": " page where you can set a description of how you choose who you've added to your lists and if there are any actions that account can take to get removed from them. You can see the descriptions of the lists of other accounts by browsing directly to their personal blacklist or mute list page. These links can be found on their profile page below the follower information. To get started, we recommend that you follow the blacklists/mute lists of these accounts: blurt.blog",
         "settings": "Ustawienia",
         "list_description": "Opis listy: ",
         "add_account_to_list": "Dodaj konto/konta do listy",
@@ -346,7 +346,7 @@
     },
     "social_tab": {
       "community_subscriptions_title": "Subskrypcje społeczności",
-      "the_author_has_subscribed_to_the_following": "Autor zasubskrybował poniższe Społeczności Hive",
+      "the_author_has_subscribed_to_the_following": "Autor zasubskrybował poniższe Społeczności Blurt",
       "badges_and_achievements_title": "Odznaki i osiągnięcia",
       "these_are_badges_received_by_the_author": "Są to odznaki otrzymane przez autora za pośrednictwem zewnętrznych aplikacji ",
       "view_badges_on": "View badges on",
@@ -457,7 +457,7 @@
         "share_this_link": "Udostępnij post",
         "url_to_this_post": "URL do tego posta:",
         "markdown_code_for_a_link_to_this_post": "Kod Markdown dla linku do tego posta:",
-        "open_in_alternative": "Alternatywne źródła Hive dApps",
+        "open_in_alternative": "Alternatywne źródła Blurt dApps",
         "open_in": "Otwórz w Block Explorers"
       },
       "comment": {
@@ -545,10 +545,10 @@
     "markdown_not_supported": "Markdown nie jest obsługiwany tutaj",
     "html_not_supported": "HTML nie jest obsługiwany tutaj",
     "hive_link_converted": "Blog link converted",
-    "hive_link_converted_count": "{{count}} Hive blog link(s) converted to relative path",
+    "hive_link_converted_count": "{{count}} Blurt blog link(s) converted to relative path",
     "undo": "Undo",
-    "convert_hive_links": "Convert Hive links",
-    "convert_hive_links_tooltip": "Automatically converts pasted links from Hive blog frontends to frontend-agnostic relative paths, so your post works on any Hive app",
+    "convert_hive_links": "Convert Blurt links",
+    "convert_hive_links_tooltip": "Automatically converts pasted links from Blurt blog frontends to frontend-agnostic relative paths, so your post works on any Blurt app",
     "optimize_images": "Optimize images",
     "optimize_images_tooltip": "Resize and compress images before upload for faster uploads and smaller file sizes. Converts unsupported formats (HEIC/HEIF) automatically.",
     "uploading_images": "Uploading {{count}} images...",

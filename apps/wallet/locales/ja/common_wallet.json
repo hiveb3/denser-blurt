@@ -72,12 +72,12 @@
       "welcome": "ようこそ",
       "faq": "FAQ",
       "vote_for_witnesses": "証人に投票する",
-      "hive_proposals": "Hive Proposals",
+      "hive_proposals": "Blurt Proposals",
       "blocktrades": "Blocktrades",
       "ionomy": "Ionomy",
       "openhive_chat": "Hiveチャット",
       "apps_built_on_hive": "Hiveアプリセンター",
-      "developer_portal": "HIVE API資料",
+      "developer_portal": "BLURT API資料",
       "hive_whitepaper": "Hiveホワイトペーパー",
       "privacy_policy": "プライバシーポリシー",
       "terms_of_service": "利用規約",
@@ -102,7 +102,7 @@
       "others": "Others",
       "incoming": "Incoming",
       "outgoing": "Outgoing",
-      "exclude_less_than_one": "Exclude less than 1 HBD/HIVE",
+      "exclude_less_than_one": "Exclude less than 1 HBD/BLURT",
       "input_title": "Search by user",
       "input_placeholder": "ユーザー名"
     },
@@ -121,11 +121,11 @@
     }
   },
   "wallet_index": {
-    "title": "Hive wallet login",
-    "content": "Welcome to Hive's official Hive blockchain wallet. Use it to transfer Hive tokens, Power up, vote for Hive Witnesses and change your Hive profile details.",
+    "title": "Blurt wallet login",
+    "content": "Welcome to Blurt's official Blurt blockchain wallet. Use it to transfer Blurt tokens, Power up, vote for Blurt Witnesses and change your Blurt profile details.",
     "login_button": "ログイン",
     "card": {
-      "title": "Hive tokens",
+      "title": "Blurt tokens",
       "liquid_platform_token": "Liquid platform token",
       "vesting_influence_token": "Vesting influence token",
       "seeks_price_stability": "Seeks price stability with USD"
@@ -134,7 +134,7 @@
   "profile": {
     "joined": "登録年月：",
     "hive_description": "いつでもどこへでも送ることができる取引可能なトークンです。HIVEはパワーアップによってHIVE POWERに変換できます。",
-    "hp_description": "投稿への支払額の制御権を持ち、キュレーション報酬を得ることが可能になる、プラットフォームにおける影響力を持つトークンです。現在のHIVE POWERの一部は委託されたものです。委託は影響力の寄付や、新規ユーザーがHiveでアクションを起こしやすくするために行われます。委託された額は変動する可能性があります。 HIVE POWER increases at an APR of approximately {{value}}%, subject to blockchain variance.",
+    "hp_description": "投稿への支払額の制御権を持ち、キュレーション報酬を得ることが可能になる、プラットフォームにおける影響力を持つトークンです。現在のHIVE POWERの一部は委託されたものです。委託は影響力の寄付や、新規ユーザーがHiveでアクションを起こしやすくするために行われます。委託された額は変動する可能性があります。 BLURT POWER increases at an APR of approximately {{value}}%, subject to blockchain variance.",
     "hive_dolar_description": "Tradeable tokens that may be transferred anywhere at anytime.",
     "savings_title": "貯蓄口座",
     "savings_description": "引き出しに3日間の待ち時間が必要となる貯蓄口座です。HBD interest rate: {{rate}}% APR (as voted by the <0>Witnesses</0>)",
